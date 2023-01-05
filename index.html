@@ -4,9 +4,58 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title class="title" id="title-app">Task Manager</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.2/cosmo/bootstrap.min.css"/>
 </head>
 <body>
-    
+    <nav class="navbar navbar-light bg-dark">
+        <a href="/" class="navbar-brand">
+            Task Manager
+        </a>
+    </nav>
+
+    <div class="container">
+        <!-- APPLICATION -->
+        <div id="App" class="row pt-5">
+          <!-- FORM -->
+          <div class="col-md-4">
+            <div class="card">
+              <div class="card-header">
+                <h4>Agraga una nueva tarea</h4>
+
+              </div>
+              <form id="task-form" class="card-body">
+                <div class="form-group">
+                  <input
+                    type="text"
+                    id="task-name"
+                    placeholder="Tarea"
+                    class="form-control"
+                  />
+                </div>
+                
+                <div class="form-group">
+                  <input
+                    type="text"
+                    id="task-time"
+                    placeholder="Hora tarea"
+                    class="form-control"
+                  />
+                </div>
+
+                <input
+                  type="submit"
+                  value="Guardar"
+                  class="btn btn-primary btn-block"
+                />
+              </form>
+            </div>
+          </div>
+  
+          <!-- TASK LIST -->
+          <div id="task-list" class="col-md-8"></div>
+        </div>
+      </div>
+      <script type="module" src="/app.js"></script>
 </body>
 </html>
