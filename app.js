@@ -1,3 +1,10 @@
+/**
+ *  LOS ESTILOS FUERON APLICADOS USANDO BOOSTRAP 4
+ *  EL TEMPLATE DEL FORMULARIO ESTA EN EL ARCHIVO HTML
+ *  DINAMICAMENTE SE CREA EL TEMPLATE DE LA TAREA LUEGO DE AGREGARLA
+ */
+
+// CLASE TASK
 class Task {
     constructor(name, day) {
         this.name = name,
@@ -5,6 +12,8 @@ class Task {
     }
 }
 
+// CLASE INTERFACE USUARIO(MÉTODOS QUE REALIZA LA INTERFACE)
+// CREA EL TEMPLATE DE LA TAREA LUEGO DE HACER CLICK EN EL BOTÓN 
 class UserInterface {
     addTask(task) {
         const taskList = document.getElementById("task-list");
@@ -18,16 +27,19 @@ class UserInterface {
             </div>
         </div> 
         `;
-        // EL LINK SE ESTILIZÓ COMO BOTÓN GRACIAS A LOS ESTILOS DE BOOSTRAP
+        // EL LINK SE ESTILIZÓ COMO BOTÓN GRACIAS A LOS ESTILOS DE BOOSTRAP 
         taskList.appendChild(element);
         this.resetForm();
     }
 
+    // MÉTODO PARA DEJAR VACÍO EL FORMULARIO, SE USA DESPÚES DE AGREGAR UNA NUEVA TAREA
     resetForm(){
         document.getElementById("task-form").reset();
     }
 
+    // MÉTODO PARA ELIMINAR TAREA
     deleteTask(element) {
+        // DELETE ES EL NOMBRE DE LA PROPIEDAD NAME DEL LINK ESTILIZADO A BOTÓN
         if(element.name === "delete"){
             element.parentElement.parentElement.parentElement.remove()
             this.showMessages("Tarea eliminiada", "info")
@@ -35,6 +47,8 @@ class UserInterface {
 
     }
 
+    // EL SEGUNDO PARÁMETRO ES LA CLASE QUE USA BOOSTRAP PARA ESTILIZAR EL COLOR DEL MENSAJE
+    // MUESTERA UN MENSAJE DEBAJO DEL NAVBAR DE LA APP
     showMessages(message, cssClass) {
         const div = document.createElement("div");
         div.className = `alert alert-${cssClass} mt-4`
@@ -42,12 +56,13 @@ class UserInterface {
         const container = document.querySelector(".container");
         const app = document.querySelector("#App");
         container.insertBefore(div, app)
-        setTimeOut = setTimeout(function(){
-            document.querySelector(".alert").remove()
-        }, 1000)
+        setTimeout(function () {
+            document.querySelector(".alert").remove();
+          }, 1000);
     }
 }
 
+// LÓGICA DEL FORMULARIO HTML PARA CAPTURAR LOS DATOS INGRESADOS POR EL USUARIO
 document.getElementById("task-form").addEventListener("submit", function (e) {
     const taskName = document.getElementById("task-name").value;
     const taskTime = document.getElementById("task-time").value;
@@ -58,7 +73,7 @@ document.getElementById("task-form").addEventListener("submit", function (e) {
     if(taskName === "" || taskTime === ""){
         // SIN ESTE RETURN MOSTRARÍA EL MENSAJE DE TAREA AGREGADA SATISFACTORIAMENTE
         // CON EL RETURN OBLIGAMOS A QUE LA FUNCIÓN SE EJECUTE HASTA ESE PUNTO Y NO SIGA
-        return userInterface.showMessages("los campos no pueden estar vacíos", "danger")
+        return userInterface.showMessages("Los campos no pueden estar vacíos", "danger")
     }
     // SE PUEDE LLAMAR TAMBIÉN DE ESTA MANERA
     userInterface.addTask(task); 
@@ -67,6 +82,7 @@ document.getElementById("task-form").addEventListener("submit", function (e) {
     e.preventDefault();
 });
 
+// LÓGICA PARA CAPTURAR EL CLICK EN EL LINK QUE SE ESTILIZO COMO BOTÓN ELIMINAR TAREA
 document.getElementById("task-list").addEventListener("click", function(e){
     const userInterface = new UserInterface();
     userInterface.deleteTask(e.target)
