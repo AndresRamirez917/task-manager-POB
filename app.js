@@ -35,6 +35,10 @@ class UserInterface {
         `;
         // EL LINK SE ESTILIZÓ COMO BOTÓN GRACIAS A LOS ESTILOS DE BOOSTRAP 
         taskList.appendChild(element);
+        // SOLO PUEDO LLAMAR EL MÉTODO SHOWMESSAGES DESDE DENTRO DE LA CLASE CON EL THIS.
+        // O HACERLO DESDE AFUERA DE ESTA CLASE CREANDO UNA NUEVA INSTANCIA DE USERINTERFACE
+        // Y USARLO COMO UNA PROPIEDAD: userInterface.showMessages("Tarea agregada satisfactoriamente", "success")
+       // this.showMessages("Tarea agregada satisfactoriamente", "success")
         this.resetForm();
     }
 
