@@ -6,7 +6,7 @@
  *  -EL BOTÓN DEL TEMPLATE PARA ELIMINAR TAREA ES UN LINK ESTILIZADO - NO ES UN BOTÓN COMO TAL
  *  -HAY UN TEMPORIZADOR DENTRO DEL MÉTODO SHOWMESSAGES QUE OCULTA LOS MENSAJES LUEGO DE 1 SEGUNDO
  *  -CON THIS. PUEDO LLAMAR A UN MÉTODO DENTRO DE LA MISMA CLASE, SIN EL THIS PUEDO LLAMAR EL MÉTODO
- *   FUERA DE LA CLASE
+ *   FUERA DE LA CLASE PERO CREANDO UNA NUEVA INSTANCIA DEL OBJETO Y LLAMARLA CON EL PUNTO (.)
  */
 
 // CLASE TASK
@@ -37,7 +37,7 @@ class UserInterface {
         taskList.appendChild(element);
         // SOLO PUEDO LLAMAR EL MÉTODO SHOWMESSAGES DESDE DENTRO DE LA CLASE CON EL THIS.
         // O HACERLO DESDE AFUERA DE ESTA CLASE CREANDO UNA NUEVA INSTANCIA DE USERINTERFACE
-        // Y USARLO COMO UNA PROPIEDAD: userInterface.showMessages("Tarea agregada satisfactoriamente", "success")
+        // Y USARLO COMN EL PUNTO (.): userInterface.showMessages("Tarea agregada satisfactoriamente", "success")
        // this.showMessages("Tarea agregada satisfactoriamente", "success")
         this.resetForm();
     }
